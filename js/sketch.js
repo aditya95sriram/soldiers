@@ -32,10 +32,20 @@ function check_soldier(r, c) {
   return (mx - cx)**2 + (my - cy)**2 <= 2*SOLDIER_RADIUS**2;
 }
 
+function getInput(name) {
+  return parseInt(document.getElementsByName(name)[0].value);
+}
+
+function init() {
+  let nrows = getInput("nrows"), ncols = getInput("ncols");
+  board = new Board(nrows, ncols);
+  canvas.elt.focus();
+}
+
 function setup() {
   canvas = createCanvas(boardSize,boardSize);
   canvas.parent('sketch');
-  board = new Board(3,2);
+  init();
 }
 
 function draw() {
